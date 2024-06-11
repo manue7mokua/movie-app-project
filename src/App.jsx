@@ -7,7 +7,8 @@ function App() {
 
   return (
     <>
-      <MovieList  />
+    <h1>Flixster</h1>
+      <MovieList />
     </>
   )
 }

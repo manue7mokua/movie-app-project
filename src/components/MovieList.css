@@ -6,9 +6,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    border: 2px solid rosybrown;
-    gap: 40px;
+    justify-content: space-evenly;
+    border: 2px;
+    gap: 20px;
     flex-wrap: wrap;
-    padding: 40px;
+}
+
+/* Hide the scrollbar */
+::-webkit-scrollbar {
+    display: none;
 }
