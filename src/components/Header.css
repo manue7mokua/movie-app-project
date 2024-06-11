@@ -1,0 +1,38 @@
+.header-content {
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+.golden-rod-text {
+    color: darkgoldenrod
+}
+
+#text-input {
+    width: 30%; /* Set the width of the form to 50% of the screen size */
+    height: 20px;
+    margin: 0 auto; /* Center the form horizontally */
+    border-radius: 8px;
+    color: black;
+}
+
+#sort-by {
+    color:#b8860b;
+    width: 10%;
+    height: 20px;
+}
+
+button[type="submit"] {
+    background-color: #b8860b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* .header-forms {
+    display: flex;
+} */

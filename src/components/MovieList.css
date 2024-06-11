@@ -10,6 +10,7 @@
     border: 2px;
     gap: 20px;
     flex-wrap: wrap;
+    margin-top: 25px;
 }
 
 /* Hide the scrollbar */
