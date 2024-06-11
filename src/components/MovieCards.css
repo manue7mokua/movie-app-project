@@ -1,0 +1,24 @@
+* {
+    color: white;
+}
+.movie-cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 2px solid orange;
+    border-radius: 20px;
+    height: 400px;
+    width: 250px;
+}
+
+.movie-image {
+    width: 100px;
+}
+
+.movie-name {
+    font-size: larger;
+    font-weight: bolder;
+}

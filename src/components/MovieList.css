@@ -1,0 +1,13 @@
+* {
+    color: white;
+}
+
+.movie-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rosybrown;
+    gap: 40px;
+    flex-wrap: wrap;
+}
