@@ -1,32 +1,51 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import './MovieCards.css'
-import PropTypes from 'prop-types'
 
-const MovieCards = (props) => {
-    // const cardsRef = useRef();
+const MovieCards = ({title, category}) => {
+    const [apiData, setApiData] = useState([]);
+    const cardsRef = useRef();
 
-    // const handleWheel = (event) => {
-    //     event.preventDefault();
-    //     cardsRef.current.scrollLeft += event.deltaY;
-    // }
+    const handleWheel = (event) => {
+        event.preventDefault();
+        cardsRef.current.scrollLeft += event.deltaY;
+    }
 
-    // useEffect(() => {
-    //     cardsRef.current.addEventListener('wheel', handleWheel);
-    // }, [])
-  return (
-    <div className='movie-cards'>
-        <p className='movie-name'>{props.name}</p>
-        <img className='movie-image' src={props.image}/>
-        <p className='movie-rating'>&#x2605;{props.rating}</p>
-        <p className='movie-release'>Release Date: {props.release}</p>
-    </div>
-  )
-}
+const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDdlMTdmMjJjZWE3ODlkNTE1Y2NjNTdiOWU5YTIyZiIsInN1YiI6IjY2Njc2OWM3ODcxNmViNWY2ODk5ZmJmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lXbFgXHgPrK-rMNigU1J6EBWxavwnx1JX77MflmAQaM'
+        }
+      };
 
-MovieCards.propTypes = {
-    name: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    release: PropTypes.number.isRequired,
+
+    useEffect(() => {
+        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
+            .then(response => response.json())
+            .then(response => setApiData(response.results))
+            .catch(err => console.error(err));
+
+        cardsRef.current.addEventListener('wheel', handleWheel);
+    }, [])
+
+
+
+    return (
+
+        <div className='movie-cards' ref={cardsRef}>
+        {/* <h2>{title?title:"Popular on Flixster"}</h2> */}
+            {apiData.map((movie, index) => {
+                return (
+                    <div className='movie-card-item' key={index}>
+                    <img className='movie-image' src={`https://image.tmdb.org/t/p/w500`+movie.backdrop_path} alt='' />
+                    <p className='movie-title'>{movie.original_title}</p>
+                    <p className='movie-rating'>Rating: <span className='orange-star'>&#x2605;</span>{movie.vote_average}</p>
+                    <p className='movie-release-date'>Released: {movie.release_date}</p>
+                    </div>
+                )}
+            )}
+        </div>
+    )
 }
 
 

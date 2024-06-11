@@ -10,4 +10,5 @@
     border: 2px solid rosybrown;
     gap: 40px;
     flex-wrap: wrap;
+    padding: 40px;
 }
