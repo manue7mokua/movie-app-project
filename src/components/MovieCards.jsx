@@ -74,8 +74,7 @@ const MovieCards = ({ movies }) => {
               alt=""
             />
             <p className="movie-title">{movie.name}</p>
-            <p className="movie-rating">Rating: {movie.vote_average}</p>
-            <p className="movie-release-date">Released: {movie.first_air_date}</p>
+            <p className="movie-rating">Rating: &#x2605; {movie.vote_average}</p>
           </div>
         );
       })}
