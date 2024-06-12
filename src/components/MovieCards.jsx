@@ -7,13 +7,9 @@ const MovieCards = ({title, category}) => {
     const cardsRef = useRef();
     const [currentPage, setCurrentPage] = useState(1);
 
-    const [searchResults, setSearchResults] = useState([]); // Add this line
-    const [searchQuery, setSearchQuery] = useState(''); // Add this line
+    // const [searchResults, setSearchResults] = useState([]);
+    // const [searchQuery, setSearchQuery] = useState('');
 
-    // const handleWheel = (event) => {
-    //     event.preventDefault();
-    //     cardsRef.current.scrollLeft += event.deltaY;
-    // }
 
     const options = {
             method: 'GET',
@@ -23,20 +19,10 @@ const MovieCards = ({title, category}) => {
             }
     };
 
-
-    // useEffect(() => {
-    //     fetch('https://api.themoviedb.org/3/tv/popular?language=en-US&page=1', options)
-    //         .then(response => response.json())
-    //         .then(response => setApiData(response.results))
-    //         .catch(err => console.error(err));
-
-    //     // cardsRef.current.addEventListener('wheel', handleWheel);
-    // })
-
     useEffect(() => {
         const fetchMovies = async () => {
           const response = await fetch(
-            `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}`, // Update this line
+            `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}`,
             options
           );
           const data = await response.json();
@@ -44,9 +30,11 @@ const MovieCards = ({title, category}) => {
         };
         fetchMovies();
       }, [currentPage]); // Add currentPage to the dependency array
+
       const loadMoreMovies = () => {
-        setCurrentPage(currentPage + 1); // Increment the page number
+        setCurrentPage(currentPage + 1);
       };
+
 
     return (
         <>
