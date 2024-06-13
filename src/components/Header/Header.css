@@ -1,38 +1,73 @@
-.header-content {
-    top: 0;
+.header {
     width: 100%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    font-size: 14px;
+    color: #e5e5e5;
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+    z-index: 1;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.header-left ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.header-left ul li {
+    cursor: pointer;
+    font-size: medium;
+    font-family: roboto;
+}
+
+.header-right {
+    display: flex;
+    gap: 20px;
+    align-items: center
+}
+
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header .dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: max-content;
+    background: #191919;
+    padding: 16px 22px;
+    border-radius: 12px;
+    text-decoration: underline;
+    z-index: 1
 }
 
 .golden-rod-text {
-    color: darkgoldenrod
+    color: darkgoldenrod;
 }
 
-#text-input {
-    width: 30%; /* Set the width of the form to 50% of the screen size */
-    height: 20px;
-    margin: 0 auto; /* Center the form horizontally */
-    border-radius: 8px;
-    color: black;
-}
-
-#sort-by {
-    color:#b8860b;
-    width: 10%;
-    height: 20px;
-}
-
-button[type="submit"] {
-    background-color: #b8860b;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
+.icons {
+    width: 28px;
     cursor: pointer;
-    margin-left: 10px;
 }
 
-/* .header-forms {
-    display: flex;
-} */
+.app-logo {
+    width: 200px;
+}
+
+.medium-text {
+    font-size: medium;
+}
