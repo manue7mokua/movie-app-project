@@ -13,6 +13,8 @@ const MovieList = ({ title, category,  }) => {
   const [searchResults, setSearchResults] = useState([]); // Add state for search results
   const [searchQuery, setSearchQuery] = useState(''); // Add state for search query
 
+
+
   const options = {
     method: 'GET',
     headers: {
