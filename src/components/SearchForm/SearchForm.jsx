@@ -8,7 +8,8 @@ const SearchForm = ({ onSearch }) => {
       onSearch(query);
     };
     return (
-      <form onSubmit={handleSubmit} className="search-form">
+      <div className='searchform'>
+        <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"
           placeholder="Search for a movie..."
@@ -17,6 +18,8 @@ const SearchForm = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
+      </div>
+
     );
 };
 

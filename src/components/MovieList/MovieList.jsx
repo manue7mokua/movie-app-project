@@ -69,7 +69,7 @@ const MovieList = ({ title, category,  }) => {
   };
 
   return (
-    <>
+    <div className='movie-container'>
 
     <div className="d-flex justify-content-between">
         <h2>{title}</h2>
@@ -87,7 +87,7 @@ const MovieList = ({ title, category,  }) => {
       </div>
       {(!showSearchBar && apiData.length > 10) && <button onClick={loadMoreMovies}>Load Movies</button>}
 
-    </>
+    </div>
   );
 };
 

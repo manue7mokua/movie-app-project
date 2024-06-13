@@ -2,6 +2,11 @@
     color: white;
 }
 
+.movie-container {
+    position: absolute;
+    top: 700px;
+}
+
 .movie-list {
     display: flex;
     flex-direction: row;

@@ -1,7 +1,8 @@
 .header {
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: auto;
+    height: 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     position: fixed;
@@ -52,7 +53,8 @@
     padding: 16px 22px;
     border-radius: 12px;
     text-decoration: underline;
-    z-index: 1
+    z-index: 1;
+    display: none
 }
 
 .golden-rod-text {
@@ -70,4 +72,8 @@
 
 .medium-text {
     font-size: medium;
+}
+
+.header-profile:hover .dropdown {
+    display: block;
 }

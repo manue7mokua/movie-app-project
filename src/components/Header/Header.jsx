@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <div className='header'>
         <div className='header-left'>
-            <img src={logo_icon} alt='' className='app-logo'/>
+            {/* <img src={logo_icon} alt='' className='app-logo'/> */}
             <ul>
                 <li className='golden-rod-text medium-text'>Home</li>
                 <li className='golden-rod-text medium-text'>Movies</li>
