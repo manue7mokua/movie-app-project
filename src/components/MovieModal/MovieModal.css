@@ -4,10 +4,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    background-color: black;
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
     border-radius: 18px;
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.9) 80%, transparent);
+    border: 2px solid green;
 }
 
 .modal-card-details {
@@ -17,3 +18,45 @@
     justify-content: center;
     gap: 10px;
 }
+
+.movie-modal-image {
+    border-radius: 10px;
+}
+
+.golden-star {
+    color: darkgoldenrod
+}
+
+.grey-text {
+    color:antiquewhite
+}
+
+.movie-overview-text  {
+    width: 60%;
+}
+
+.movie-title-name {
+    font-size: larger;
+    font-weight: bold;
+    color: darkgoldenrod;
+}
+
+.close-button {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #181818;
+    margin: 15px;
+    border-radius: 10px;
+  }
+
+  .close-button:focus {
+    outline: none;
+  }
+
+  .close-button:before {
+    content: 'Go Back';
+  }
+
+  .close-button:hover {
+    transform: scale(1.1);
+  }

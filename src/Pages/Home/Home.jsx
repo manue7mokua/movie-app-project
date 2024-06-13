@@ -18,13 +18,10 @@ function App() {
         {/* <div className='banner-caption'>
           <p>"Peaky Blinders: A gritty crime saga of power, loyalty, and survival in the treacherous underworld of post-war Birmingham."</p>
         </div> */}
-
-        <div className='banner-buttons'>
-          <button className='btn'><img src={playbutton} alt='' className='banner-icons'/></button>
-        </div>
-      </div>
+        
       <MovieList />
       <Footer />
+      </div>
     </div>
   )
 }
