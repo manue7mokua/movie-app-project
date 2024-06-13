@@ -4,7 +4,7 @@ import './MovieList.css';
 import SearchForm from '../SearchForm/SearchForm';
 import { Button } from 'react-bootstrap';
 
-const MovieList = ({ title, category,  }) => {
+const MovieList = ({ title }) => {
   const apiKey = import.meta.env.TMDB_API_KEY;
   const [apiData, setApiData] = useState([]);
   const cardsRef = useRef();
@@ -12,26 +12,30 @@ const MovieList = ({ title, category,  }) => {
 
   const [searchResults, setSearchResults] = useState([]); // Add state for search results
   const [searchQuery, setSearchQuery] = useState(''); // Add state for search query
+  const [showSearchBar, setShowSearchBar] = useState(false); // Add state to show/hide search bar
+
+  const [selectedSortOption, setSelectedSortOption] = useState('');
 
   const options = {
     method: 'GET',
     headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDdlMTdmMjJjZWE3ODlkNTE1Y2NjNTdiOWU5YTIyZiIsInN1YiI6IjY2Njc2OWM3ODcxNmViNWY2ODk5ZmJmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lXbFgXHgPrK-rMNigU1J6EBWxavwnx1JX77MflmAQaM'
+      accept: 'application/json'
     },
   };
 
   useEffect(() => {
     const fetchMovies = async () => {
-            const response = await fetch(
-            `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}&api_key=${apiKey}`,
-            options
-            );
-            const data = await response.json();
-            setApiData([...apiData, ...data.results]);
+          const response = await fetch(
+          `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=${selectedSortOption}&api_key=872dd30be3603571249efb53bece9e3c`,
+          options
+          );
+          const data = await response.json();
+          console.log(selectedSortOption)
+          console.log(apiData);
+          setApiData([...apiData, ...data.results]);
         };
         fetchMovies();
-  }, [currentPage]);
+  }, [currentPage, selectedSortOption]);
 
   const loadMoreMovies = () => {
     setCurrentPage(currentPage + 1);
@@ -41,7 +45,7 @@ const MovieList = ({ title, category,  }) => {
   useEffect(() => {
     if (searchQuery) {
       const fetchSearchResults = async () => {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${currentPage}&`, options);
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchQuery}&include_adult=false&language=en-US&page=${currentPage}&api_key=872dd30be3603571249efb53bece9e3c`, options);
         const data = await response.json();
         console.log(data)
         setSearchResults(data.results);
@@ -60,12 +64,16 @@ const MovieList = ({ title, category,  }) => {
     setCurrentPage(1);
   };
 
-  const [showSearchBar, setShowSearchBar] = useState(false); // Add state to show/hide search bar
   const toggleShowSearchBar = () => {
     setShowSearchBar((prevShowSearchBar) => !prevShowSearchBar);
     if (!showSearchBar) {
       clearSearchResults();
     }
+  };
+
+  const handleSortOptionChange = (event) => {
+    setSelectedSortOption(event.target.value);
+    setApiData([]);
   };
 
   return (
@@ -78,6 +86,14 @@ const MovieList = ({ title, category,  }) => {
         </Button>
       </div>
       {showSearchBar && <SearchForm onSearch={handleSearch} onClear={clearSearchResults} query={searchQuery} />}
+      {!showSearchBar && (
+        <select value={selectedSortOption} onChange={handleSortOptionChange}>
+          <option value="title.asc">All Movies</option>
+          <option value="primary_release_date.desc">Release Date</option>
+          <option value="vote_average.desc">Vote Average</option>
+          <option value="popularity.desc">Popularity</option>
+        </select>
+      )}
 
       <div className="movie-list">
         {showSearchBar ? (
