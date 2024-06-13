@@ -11,8 +11,10 @@ const MovieList = ({ title }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const [searchResults, setSearchResults] = useState([]); // Add state for search results
-  const [searchQuery, setSearchQuery] = useState(''); // Add state for search query
-  const [showSearchBar, setShowSearchBar] = useState(false); // Add state to show/hide search bar
+  const [searchQuery, setSearchQuery] = useState(''); // state for search query
+  const [showSearchBar, setShowSearchBar] = useState(false); // state to show/hide search bar
+
+  const [showNowPlaying, setShowNowPlaying] = useState(false); // state to show/hide now playing
 
   const [selectedSortOption, setSelectedSortOption] = useState('');
 
@@ -24,7 +26,15 @@ const MovieList = ({ title }) => {
   };
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    if (showNowPlaying) {
+      const fetchNowPlayingMovies = async () => {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${currentPage}&api_key=872dd30be3603571249efb53bece9e3c`, options);
+        const data = await response.json();
+        setApiData(data.results);
+      };
+      fetchNowPlayingMovies();
+    } else {
+      const fetchMovies = async () => {
           const response = await fetch(
           `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${currentPage}&sort_by=${selectedSortOption}&api_key=872dd30be3603571249efb53bece9e3c`,
           options
@@ -35,6 +45,7 @@ const MovieList = ({ title }) => {
           setApiData([...apiData, ...data.results]);
         };
         fetchMovies();
+    };
   }, [currentPage, selectedSortOption]);
 
   const loadMoreMovies = () => {
@@ -67,6 +78,7 @@ const MovieList = ({ title }) => {
   const toggleShowSearchBar = () => {
     setShowSearchBar((prevShowSearchBar) => !prevShowSearchBar);
     if (!showSearchBar) {
+      setShowNowPlaying(false);
       clearSearchResults();
     }
   };
