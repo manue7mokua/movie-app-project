@@ -13,8 +13,6 @@ const MovieList = ({ title, category,  }) => {
   const [searchResults, setSearchResults] = useState([]); // Add state for search results
   const [searchQuery, setSearchQuery] = useState(''); // Add state for search query
 
-
-
   const options = {
     method: 'GET',
     headers: {
@@ -80,6 +78,7 @@ const MovieList = ({ title, category,  }) => {
         </Button>
       </div>
       {showSearchBar && <SearchForm onSearch={handleSearch} onClear={clearSearchResults} query={searchQuery} />}
+
       <div className="movie-list">
         {showSearchBar ? (
           <MovieCards movies={searchResults} />
@@ -87,6 +86,7 @@ const MovieList = ({ title, category,  }) => {
           <MovieCards movies={apiData} />
         )}
       </div>
+
       {(!showSearchBar && apiData.length > 10) && <button onClick={loadMoreMovies}>Load Movies</button>}
 
     </div>
