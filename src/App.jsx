@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import MovieList from './components/MovieList/MovieList'
-import Header from './components/Header/Header'
+import Home from './Pages/Home/Home'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Header />
-      <MovieList />
+      <Home />
     </>
   )
 }
