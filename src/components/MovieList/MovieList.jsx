@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import MovieCards from './MovieCards';
+import MovieCards from '../MovieCards/MovieCards';
 import './MovieList.css';
-import SearchForm from './SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
 import { Button } from 'react-bootstrap';
 
 const MovieList = ({ title, category,  }) => {
