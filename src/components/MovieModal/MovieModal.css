@@ -8,7 +8,8 @@
     height: 60%;
     border-radius: 18px;
     background-image: linear-gradient(90deg, rgba(0,0,0,0.9) 80%, transparent);
-    border: 2px solid green;
+    border: 2px solid antiquewhite;
+    overflow: scroll;
 }
 
 .modal-card-details {
@@ -39,6 +40,14 @@
     font-size: larger;
     font-weight: bold;
     color: darkgoldenrod;
+}
+
+.movie-trailer {
+    width: 80%;
+    height: 40vh;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid antiquewhite;
 }
 
 .close-button {

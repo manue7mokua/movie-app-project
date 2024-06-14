@@ -14,7 +14,6 @@ const Header = () => {
             <ul>
                 <li className='golden-rod-text medium-text'>Home</li>
                 <li className='golden-rod-text medium-text'>Movies</li>
-                <li className='golden-rod-text medium-text'>Movies</li>
                 <li className='golden-rod-text medium-text'>TV Shows</li>
                 <li className='golden-rod-text medium-text'>Popular</li>
                 <li className='golden-rod-text medium-text'>My List</li>

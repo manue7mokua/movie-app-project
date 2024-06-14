@@ -28,7 +28,7 @@
 }
 
 .movie-card-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 4px 12px 16px rgba(184, 134, 11, 0.7);
     z-index: 1;
   }
@@ -40,4 +40,5 @@
 
 .movie-rating {
     font-size: large;
+    display: hidden
 }

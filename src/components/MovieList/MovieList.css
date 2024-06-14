@@ -3,8 +3,8 @@
 }
 
 .movie-container {
-    /* position: absolute;
-    top: 700px; */
+    position:relative;
+    top: -450px;
 }
 
 .movie-list {
@@ -21,4 +21,31 @@
 /* Hide the scrollbar */
 ::-webkit-scrollbar {
     display: none;
+}
+
+.load-more-button {
+    margin-top: 50px;
+    padding: 10px;
+    width: 10%;
+    border-radius: 10px;
+    background-color: black;
+    color: darkgoldenrod;
+}
+
+.sort-dropdown {
+    margin-top: 50px;
+    padding: 10px;
+    width: 10%;
+    border-radius: 10px;
+    background-color: black;
+    color: darkgoldenrod;
+}
+
+.search-button {
+    margin-top: 50px;
+    padding: 6px;
+    width: 7%;
+    border-radius: 10px;
+    background-color: black;
+    color: darkgoldenrod;
 }

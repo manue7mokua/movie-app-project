@@ -93,13 +93,13 @@ const MovieList = ({ title }) => {
 
     <div className="d-flex justify-content-between">
         <h2>{title}</h2>
-        <Button variant="primary" onClick={toggleShowSearchBar}>
+        <Button variant="primary" onClick={toggleShowSearchBar} className='search-button'>
           {showSearchBar ? 'Now Playing' : 'Search'}
         </Button>
       </div>
-      {showSearchBar && <SearchForm onSearch={handleSearch} onClear={clearSearchResults} query={searchQuery} />}
+      {showSearchBar && <SearchForm onSearch={handleSearch} onClear={clearSearchResults} query={searchQuery} className='search-form'/>}
       {!showSearchBar && (
-        <select value={selectedSortOption} onChange={handleSortOptionChange}>
+        <select value={selectedSortOption} onChange={handleSortOptionChange} className='sort-dropdown'>
           <option value="title.asc">All Movies</option>
           <option value="primary_release_date.desc">Release Date</option>
           <option value="vote_average.desc">Vote Average</option>
@@ -115,7 +115,7 @@ const MovieList = ({ title }) => {
         )}
       </div>
 
-      {(!showSearchBar && apiData.length > 10) && <button onClick={loadMoreMovies}>Load Movies</button>}
+      {(!showSearchBar && apiData.length > 10) && <button className='load-more-button' onClick={loadMoreMovies}>More Movies</button>}
 
     </div>
   );

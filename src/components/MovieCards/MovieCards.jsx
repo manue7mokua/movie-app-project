@@ -19,8 +19,8 @@ const MovieCards = ({ movies }) => {
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt=""
             />
-            <p className="movie-title">{movie.name}</p>
-            <p className="movie-rating">Rating: &#x2605; {movie.vote_average}</p>
+            {/* <p className="movie-title">{movie.name}</p> */}
+            <p className="movie-rating">Rating: <span className='orange-star'>&#x2605;</span>{movie.vote_average}</p>
           </div>
         );
       })}

@@ -8,15 +8,16 @@ const SearchForm = ({ onSearch }) => {
       onSearch(query);
     };
     return (
-      <div className='searchform'>
+      <div className='search-form-box'>
         <form onSubmit={handleSubmit} className="search-form">
         <input
           type="text"
           placeholder="Search for a movie..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          className='search-form-input'
         />
-        <button type="submit">Search</button>
+        <button type="submit" className='search-submit-button'>Search</button>
       </form>
       </div>
 
